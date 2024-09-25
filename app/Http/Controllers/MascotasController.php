@@ -34,7 +34,7 @@ class MascotasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MascotaRequest $request)
     {
         $mascota = new Mascota();
 

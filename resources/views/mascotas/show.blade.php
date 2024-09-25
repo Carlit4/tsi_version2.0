@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="col-12 d-flex justify-content-end">
-                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="modal"
+                            <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="modal"
                                 data-bs-target="#confirmacionModal">Actualizar
                                 informacion</button>
                         </div>
@@ -163,7 +163,15 @@
 
 <div class="container shadow p-0">
 
-    <form action="{{route('mascotas.destroy',$mascota)}}" method="POST">
+    <div class="col-12 mb-3" id="boton">
+        <button class="btn border-0 rounded text-white w-100" type="button" data-bs-toggle="modal" data-bs-target="#borrarModal" style="background-color:#af0808;">
+            <h3>
+                <i class="bi bi-trash-fill"></i> Eliminar a {{$mascota->nombre}}
+            </h3>
+        </button>
+    </div>
+
+    {{-- <form action="{{route('mascotas.destroy',$mascota)}}" method="POST">
 
         @csrf
         @method('DELETE')
@@ -176,8 +184,30 @@
             </button>
         </div>
 
-    </form>
+    </form> --}}
 
+    <div class="modal fade" id="borrarModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar Eliminación EEE</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Desea eliminar permanentemente a {{$mascota->nombre}}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                    <form action="{{route('mascotas.destroy', $mascota)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 

@@ -70,15 +70,15 @@
                         <input class="form-control" id="fecha_nacimientoInput" type="date" readonly>
                     </div>
 
-                    <div class="col-12 mb-2" id="gestionarButton"></div>
+                    <div class="col-12 m-2 text-end" id="gestionarButton"></div>
                 </div>
             </form>
         </div>
         {{-- /Form para consultar una mascota --}}
 
          {{-- Botón para ir a la vista create --}}
-         <div class="col-12 mb-3">
-            <a href="{{route('mascotas.create')}}" class="btn btn-success">Agregar Nueva Mascota</a>
+         <div class="col-12 mb-3 text-center">
+            <a href="{{route('mascotas.create')}}" class="btn btn-primary">Agregar Nueva Mascota</a>
         </div>
         {{-- /Botón para ir a la vista create --}}
         
@@ -89,7 +89,7 @@
         </div>
 
         @foreach($mascotas as $mascota)
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center mt-2">
             <div class="card" style="width: 18rem;">
                 {{-- <img src="..." class="card-img-top" alt="..."> --}}
                 <div class="card-body" style="background: linear-gradient(rgb(253, 215, 237),#F9CEE7)">
@@ -102,7 +102,7 @@
                         <strong>Nacimiento: </strong>{{$mascota->fecha_nacimiento}} <br>
                         <strong>Dueño: </strong>{{$mascota->cliente->nombre}}
                     </p>
-                    <a href="{{route('mascotas.show',$mascota)}}" class="btn btn-primary">Gestionar</a>
+                    <a href="{{route('mascotas.show',$mascota)}}" class="btn btn-outline-primary">Gestionar</a>
                 </div>
             </div>
         </div>
