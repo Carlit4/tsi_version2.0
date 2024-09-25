@@ -36,7 +36,7 @@
                 </div>
             @endif
 
-            <form action="{{route('mascotas.store')}}" method="POST">
+            <form action="{{route('mascotas.store')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-6 mb-2">
@@ -100,6 +100,14 @@
                         <label class="form-label" for="fecha_nacimientoInput">Fecha de nacimiento</label>
                         <input class="form-control @error('fecha_nacimiento') is-invalid @enderror" id="fecha_nacimientoInput" type="date" name="fecha_nacimiento" required>
                         @error('fecha_nacimiento')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="col-12 mb-2">
+                        <label class="form-label" for="fotoInput">Foto de la mascota</label>
+                        <input class="form-control @error('foto') is-invalid @enderror" id="fotoInput" type="file" name="foto" accept="image/*" required>
+                        @error('foto')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

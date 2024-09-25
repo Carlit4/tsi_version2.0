@@ -17,6 +17,11 @@
 
 @section('content')
 <div class="container">
+    {{-- Botón para ir a la vista create --}}
+    <div class="col-12 mb-3 text-end">
+        <a href="{{route('mascotas.create')}}" class="btn btn-primary">Agregar Nueva Mascota</a>
+    </div>
+    {{-- /Botón para ir a la vista create --}}
     <div class="row">
 
         {{-- Form para consultar una mascota --}}
@@ -76,11 +81,7 @@
         </div>
         {{-- /Form para consultar una mascota --}}
 
-         {{-- Botón para ir a la vista create --}}
-         <div class="col-12 mb-3 text-center">
-            <a href="{{route('mascotas.create')}}" class="btn btn-primary">Agregar Nueva Mascota</a>
-        </div>
-        {{-- /Botón para ir a la vista create --}}
+         
         
         {{-- Mascotas Nuevas --}}
 
